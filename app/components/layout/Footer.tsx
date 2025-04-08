@@ -17,16 +17,16 @@ const logos = [
 export function Footer() {
   return (
     <footer className="flex flex-col justify-center items-center bg-dark">
-      {/* Container para Logo, Links e Redes Sociais */}
-      <div className="flex flex-col items-center  w-full px-10 mt-12 gap-8">
+      {/* Container for Logo, Links, and Social Media */}
+      <div className="flex flex-col items-center w-full px-10 mt-12 gap-8">
         {/* Logo */}
         <div className="relative w-36 h-6">
           <Image src="/LogoFooter.svg" alt="Logo" fill />
         </div>
 
-        {/* Links */}
+        {/* Navigation Links */}
         <nav className="text-center text-white">
-          <ul className="flex flex-col ">
+          <ul className="flex flex-col">
             {links.map(({ name, href }) => (
               <li key={name}>
                 <Link href={href}>{name}</Link>
@@ -35,7 +35,7 @@ export function Footer() {
           </ul>
         </nav>
 
-        {/* Redes Sociais */}
+        {/* Social Media Icons */}
         <div className="flex gap-4">
           {logos.map(({ name, src, link }) => (
             <Link
@@ -51,8 +51,9 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Contact Information */}
       <div className="flex flex-col items-center text-white mt-9 text-center min-w-73 gap-3.5">
-      <h1 className="bg-green rounded-sm text-black px-1.5">Contact Us:</h1>
+        <h1 className="bg-green rounded-sm text-black px-1.5">Contact Us:</h1>
         <p>Email: info@positivus.com</p>
         <p>Phone: 555-567-8901</p>
         <p>
@@ -61,7 +62,7 @@ export function Footer() {
         </p>
       </div>
 
-      {/* Formulário */}
+      {/* Newsletter Form */}
       <form className="flex flex-col rounded-md bg-[#292A32] p-8 mt-9">
         <input
           className="border-2 border-white rounded-2xl w-82 h-17 px-6 placeholder:text-white"
@@ -72,12 +73,12 @@ export function Footer() {
         </button>
       </form>
 
-      {/* Linha divisória */}
+      {/* Divider Line */}
       <div className="mt-9 px-5 w-full">
         <hr className="border-t border-white" />
       </div>
 
-      {/* Direitos autorais */}
+      {/* Copyright */}
       <p className="text-white mt-9">© 2023 Positivus. All Rights Reserved.</p>
       <p className="text-white">Privacy Policy</p>
     </footer>
