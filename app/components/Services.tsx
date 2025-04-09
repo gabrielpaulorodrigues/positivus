@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 export function Services() {
+ 
   const cards = [
     {
       titleTop: "Search Engine",
@@ -17,7 +18,7 @@ export function Services() {
   ];
 
   return (
-    <section className="p-8 flex justify-center">
+    <section className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-5 lg:px-[100px] mt-8">
       <div className="flex flex-col gap-6 relative">
         {/* Section Title */}
         <div className="text-center mb-10">
