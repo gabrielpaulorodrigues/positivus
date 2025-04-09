@@ -1,5 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
+
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 
 const links = [
   { name: "About us", href: "#about" },
@@ -8,79 +11,81 @@ const links = [
   { name: "Pricing", href: "#Testimonials" },
 ];
 
-const logos = [
-  { name: "Linkedin", src: "/IconLinkedin.svg", link: "https://facebook.com" },
-  { name: "Facebook", src: "/IconFacebook.svg", link: "https://linkedin.com" },
-  { name: "Twitter", src: "/IconTwitter.svg", link: "https://twitter.com" },
-];
-
 export function Footer() {
   return (
-    <footer className="flex flex-col justify-center items-center bg-dark">
-      {/* Container for Logo, Links, and Social Media */}
-      <div className="flex flex-col items-center w-full px-10 mt-12 gap-8">
-        {/* Logo */}
-        <div className="relative w-36 h-6">
-          <Image src="/LogoFooter.svg" alt="Logo" fill />
-        </div>
+    <>
+      <footer className="container mx-auto max-w-[90rem] bg-[#191A23] w-full flex flex-col rounded-t-[45px] mt-36 pt-[55px] pb-[50px] px-[60px] max-lg:px-5">
+        <div className="w-full flex flex-row max-lg:flex-col justify-between items-center max-lg:gap-10 ">
+          <div className="w-[12rem]">
+            <img
+              src="/LogoFooter.svg"
+              alt="Positivus Footer Logo"
+              className="w-full object-contain"
+            />
+          </div>
 
-        {/* Navigation Links */}
-        <nav className="text-center text-white">
-          <ul className="flex flex-col">
-            {links.map(({ name, href }) => (
-              <li key={name}>
-                <Link href={href}>{name}</Link>
+          <nav className="text-[#F3F3F3] flex max-lg:flex-col max-lg:gap-5 list-none gap-10">
+            {links.map((link, index) => (
+              <li
+                key={index}
+                className="text-lg underline max-lg:no-underline cursor-pointer hover:bg-[#B9FF66] hover:text-[#292A32] hover:font-[500] hover:rounded-[14px] hover:px-2 transition-all duration-300"
+              >
+                {link.name}
               </li>
             ))}
-          </ul>
-        </nav>
-
-        {/* Social Media Icons */}
-        <div className="flex gap-4">
-          {logos.map(({ name, src, link }) => (
-            <Link
-              key={name}
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 flex items-center justify-center"
-            >
-              <Image src={src} alt={name} width={30} height={30} />
-            </Link>
-          ))}
+          </nav>
+          <div className="flex flex-row gap-5 max-lg:hidden">
+            <div className="bg-[#F3F3F3] rounded-full hover:scale-95 transition-all duration-200">
+              <FaLinkedinIn size={35} className="shrink p-1.5 cursor-pointer" />
+            </div>
+            <div className="bg-[#F3F3F3] rounded-full hover:scale-95 transition-all duration-200">
+              <FaFacebookF
+                size={35}
+                className="shrink pt-1 px-2 cursor-pointer"
+              />
+            </div>
+            <div className="bg-white rounded-full hover:scale-95 transition-all duration-200">
+              <FaTwitter size={35} className="shrink p-1.5 cursor-pointer" />
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Contact Information */}
-      <div className="flex flex-col items-center text-white mt-9 text-center min-w-73 gap-3.5">
-        <h1 className="bg-green rounded-sm text-black px-1.5">Contact Us:</h1>
-        <p>Email: info@positivus.com</p>
-        <p>Phone: 555-567-8901</p>
-        <p>
-          Address: 1234 Main St<br />
-          Moonstone City, Stardust State 12345
-        </p>
-      </div>
-
-      {/* Newsletter Form */}
-      <form className="flex flex-col rounded-md bg-[#292A32] p-8 mt-9">
-        <input
-          className="border-2 border-white rounded-2xl w-82 h-17 px-6 placeholder:text-white"
-          placeholder="Email"
-        />
-        <button className="bg-green rounded-2xl font mt-5 w-82 h-17">
-          Subscribe to news
-        </button>
-      </form>
-
-      {/* Divider Line */}
-      <div className="mt-9 px-5 w-full">
-        <hr className="border-t border-white" />
-      </div>
-
-      {/* Copyright */}
-      <p className="text-white mt-9">© 2023 Positivus. All Rights Reserved.</p>
-      <p className="text-white">Privacy Policy</p>
-    </footer>
+        <div className="w-full flex flex-row justify-between max-lg:flex-col mt-16 mb-12 items-center">
+          <div className="flex flex-col w-2/7 max-lg:w-full max-lg:items-center max-lg:mb-10">
+            <h4 className="bg-[#B9FF66] rounded-[7px] px-[7px] w-max">
+              Contact us:
+            </h4>
+            <div className="text-[#F3F3F3] flex flex-col gap-7 mt-7 mb-7">
+              <p>Email: info@positivus.com</p>
+              <p>Phone: 555-567-8901</p>
+            </div>
+            <p className="text-[#F3F3F3]">Address: 1234 Main St</p>
+            <p className="text-[#F3F3F3]">
+              Moonstone City, Stardust State 12345
+            </p>
+          </div>
+          <div className="bg-[#292A32] rounded-[14px] px-10 py-14  max-lg:w-full max-lg:h-auto h-[11.5rem]">
+            <div className="flex flex-row max-lg:flex-col justify-center-safe items-center-safe gap-5">
+              <input
+                type="text"
+                placeholder="Email"
+                className="px-9 py-[20px] rounded-[14px] border text-[#F3F3F3] placeholder:text-[#F3F3F3] outline-none"
+              />
+              <button className="bg-[#B9FF66] px-9 py-[20px] rounded-[14px] cursor-pointer border border-[#B9FF66] text-xl hover:bg-[#191A23] hover:border-[#191A23] hover:border hover:text-[#F3F3F3] transition-all duration-200 ease-in">
+                Subscribe to news
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="w-full border border-[#F3F3F3] mb-12" />
+        <div className="flex flex-row max-lg:flex-col max-lg:items-center max-lg:gap-5 gap-10">
+          <span className="text-[#F3F3F3]">
+            © 2023 Positivus. All Rights Reserved.
+          </span>
+          <span className="text-white underline cursor-pointer">
+            Privacy Policy
+          </span>
+        </div>
+      </footer>
+    </>
   );
 }
