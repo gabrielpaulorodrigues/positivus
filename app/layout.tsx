@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.className} antialiased`}
+        className={`${spaceGrotesk.className} container mx-auto max-md:px-4 max-lg:px-4 max-xl:px-4 max-2xl:px-4 max-w-[90rem] antialiased`}
       >
         <Header/>
         {children}
